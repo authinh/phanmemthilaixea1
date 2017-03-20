@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phan Mem Quan Ly", "Control\Phan Mem Quan Ly.csproj", "{897F4953-9AAA-4F06-8E50-C13B5696D1D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D471DDA5-2C15-43A3-9579-BF9C013C4DB2}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{897F4953-9AAA-4F06-8E50-C13B5696D1D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{897F4953-9AAA-4F06-8E50-C13B5696D1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{897F4953-9AAA-4F06-8E50-C13B5696D1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{897F4953-9AAA-4F06-8E50-C13B5696D1D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
