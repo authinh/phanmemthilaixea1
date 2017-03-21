@@ -47,13 +47,19 @@ namespace PhanMemQuanLy.MenuForm.QuanLy.KhoaSatHach
                     ae.ShowDialog();
                     break;
 
-                case 1: ExamDAL.Delete(list[e.RowIndex].ExamID);
+                case 1:
+                    if (MessageBox.Show(null,"bạn muốn xóa không?","xóa", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+                    
+                    ExamDAL.Delete(list[e.RowIndex].ExamID);
                     try
                     {
                         list.RemoveAt(e.RowIndex);
                     }
                     catch { }
-
+                    break;
+                default:
+                    list = PhanMemQuanLy.DAL.ExamDAL.getAllExams();
+                    data.DataSource = list;
                     break;
             }
         }

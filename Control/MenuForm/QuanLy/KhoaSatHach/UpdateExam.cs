@@ -49,8 +49,8 @@ namespace PhanMemQuanLy.MenuForm.QuanLy.KhoaSatHach
             txtdate.Value = exam.ExamDateTime;
             txtMark.Text = exam.ExamMark.ToString();
             //txtTime.Value = new DateTime(exam.ExamTime.Ticks);
-            radioButton1.Checked = (exam.ExamStatus == 1) ? true : false;
-            radioButton2.Checked = (exam.ExamStatus == 1) ? true : false;
+            radioButton1.Checked = (exam.ExamStatus == 0) ? false : true;
+            radioButton2.Checked = (exam.ExamStatus == 1) ? false : true;
 
 
             List<Question> qList = QuestionDAL.getAllQuestion();
