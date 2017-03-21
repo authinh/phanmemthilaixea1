@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhanMemQuanLy.Entity
 {
-    class Exam
+    public class Exam
     {
         public int ExamID { get; set; }
         public string ExamTitle { get; set; }

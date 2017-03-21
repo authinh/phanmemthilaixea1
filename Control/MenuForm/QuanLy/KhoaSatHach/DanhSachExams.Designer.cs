@@ -30,15 +30,14 @@
         {
             this.data = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.ExamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamMark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExamStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnDetail = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,40 +50,28 @@
             this.ExamMark,
             this.ExamDateTime,
             this.ExamTime,
-            this.ExamStatus});
-            this.data.Location = new System.Drawing.Point(12, 42);
+            this.ExamStatus,
+            this.update,
+            this.Column1});
+            this.data.Location = new System.Drawing.Point(16, 52);
+            this.data.Margin = new System.Windows.Forms.Padding(4);
             this.data.Name = "data";
             this.data.RowHeadersVisible = false;
-            this.data.Size = new System.Drawing.Size(670, 215);
+            this.data.Size = new System.Drawing.Size(1110, 265);
             this.data.TabIndex = 0;
+            this.data.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellClick);
+            this.data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 12);
+            this.btnAdd.Location = new System.Drawing.Point(16, 15);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(93, 12);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(255, 12);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // ExamID
             // 
@@ -130,25 +117,32 @@
             this.ExamStatus.Name = "ExamStatus";
             this.ExamStatus.ReadOnly = true;
             // 
-            // btnDetail
+            // update
             // 
-            this.btnDetail.Location = new System.Drawing.Point(174, 12);
-            this.btnDetail.Name = "btnDetail";
-            this.btnDetail.Size = new System.Drawing.Size(75, 23);
-            this.btnDetail.TabIndex = 4;
-            this.btnDetail.Text = "Detail";
-            this.btnDetail.UseVisualStyleBackColor = true;
+            this.update.HeaderText = "";
+            this.update.Name = "update";
+            this.update.Text = "update";
+            this.update.ToolTipText = "update";
+            this.update.UseColumnTextForButtonValue = true;
+            this.update.Width = 50;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Text = "Delete";
+            this.Column1.ToolTipText = "Delete";
+            this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 50;
             // 
             // DanhSachExams
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 261);
-            this.Controls.Add(this.btnDetail);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
+            this.ClientSize = new System.Drawing.Size(1156, 321);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.data);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DanhSachExams";
             this.Text = "Danh sách kỳ thi";
             this.Load += new System.EventHandler(this.DanhSachExams_Load);
@@ -161,14 +155,13 @@
 
         private System.Windows.Forms.DataGridView data;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExamID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExamTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExamMark;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExamDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExamTime;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ExamStatus;
-        private System.Windows.Forms.Button btnDetail;
+        private System.Windows.Forms.DataGridViewButtonColumn update;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }

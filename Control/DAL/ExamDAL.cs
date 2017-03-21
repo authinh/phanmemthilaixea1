@@ -12,9 +12,9 @@ namespace PhanMemQuanLy.DAL
 {
     class ExamDAL
     {
-        static public List<Exam> getAllExams()
+        static public List<PhanMemQuanLy.Entity.Exam> getAllExams()
         {
-            List<Exam> res = new List<Exam>();
+            List<PhanMemQuanLy.Entity.Exam> res = new List<PhanMemQuanLy.Entity.Exam>();
             SqlConnection connection = new SqlConnection(Connection.getConnectionString());
             SqlCommand command = new SqlCommand("SELECT * FROM Exams", connection);
             SqlDataAdapter adapt = new SqlDataAdapter(command);
@@ -23,7 +23,7 @@ namespace PhanMemQuanLy.DAL
             DataTable dt = ds.Tables[0];
             foreach (DataRow dr in dt.Rows)
             {
-                res.Add(new Exam(Convert.ToInt32(dr["ExamID"]), Convert.ToString(dr["ExamTitle"]), Convert.ToInt32(dr["ExamMark"]), Convert.ToDateTime(dr["ExamDateTime"]), TimeSpan.Parse(dr["ExamTime"].ToString()), Convert.ToInt32(dr["ExamStatus"])));
+                res.Add(new PhanMemQuanLy.Entity.Exam(Convert.ToInt32(dr["ExamID"]), Convert.ToString(dr["ExamTitle"]), Convert.ToInt32(dr["ExamMark"]), Convert.ToDateTime(dr["ExamDateTime"]), TimeSpan.Parse(dr["ExamTime"].ToString()), Convert.ToInt32(dr["ExamStatus"])));
             }
             return res;
         }
@@ -59,6 +59,29 @@ namespace PhanMemQuanLy.DAL
                     QuestionID.Value = qid;
                     command.ExecuteNonQuery();
                 }
+                transaction.Commit();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        internal static void Delete(int examID)
+        {
+            SqlConnection connection = new SqlConnection(Connection.getConnectionString());
+            connection.Open();
+            try
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                
+                var transaction = connection.BeginTransaction();
+                command.Transaction = transaction;
+                command.CommandText = "DELETE FROM [dbo].[ExamsQuestions] WHERE ExamID = " + examID;
+                command.ExecuteNonQuery();
+                command.CommandText = "DELETE FROM [dbo].[Exams]  WHERE ExamID = " + examID;
+                command.ExecuteNonQuery();
+                
                 transaction.Commit();
             }
             finally

@@ -14,9 +14,9 @@ namespace PhanMemQuanLy.DAL
 {
     class QuestionDAL
     {
-        public static List<Question> getAllQuestion()
+        public static List<PhanMemQuanLy.Entity.Question> getAllQuestion()
         {
-            List<Question> res = new List<Question>();
+            List<PhanMemQuanLy.Entity.Question> res = new List<PhanMemQuanLy.Entity.Question>();
             SqlConnection connection = new SqlConnection(Connection.getConnectionString());
             SqlCommand command = new SqlCommand("SELECT * FROM Questions", connection);
             SqlDataAdapter adapt = new SqlDataAdapter(command);
@@ -25,7 +25,7 @@ namespace PhanMemQuanLy.DAL
             DataTable dt = ds.Tables[0];
             foreach(DataRow dr in dt.Rows)
             {
-                res.Add(new Question(Int32.Parse(dr["QuestionID"].ToString()), dr["QuestionImage"].ToString()));
+                res.Add(new PhanMemQuanLy.Entity.Question(Int32.Parse(dr["QuestionID"].ToString()), dr["QuestionImage"].ToString()));
             }
             return res;
         }
@@ -39,7 +39,7 @@ namespace PhanMemQuanLy.DAL
             adapt.Fill(ds);
             DataTable dt = ds.Tables[0];
             DataRow dr = dt.Rows[0];
-            return new Question(Convert.ToInt32(dr["QuestionID"]), dr["QuestionImage"].ToString());
+            return new PhanMemQuanLy.Entity.Question(Convert.ToInt32(dr["QuestionID"]), dr["QuestionImage"].ToString());
         }
 
         public static int insertQuestion(string QuestionImage)

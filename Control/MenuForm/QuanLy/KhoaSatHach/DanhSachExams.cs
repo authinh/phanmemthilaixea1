@@ -13,6 +13,7 @@ namespace PhanMemQuanLy.MenuForm.QuanLy.KhoaSatHach
 {
     public partial class DanhSachExams : Form
     {
+        List<PhanMemQuanLy.Entity.Exam> list;
         public DanhSachExams()
         {
             InitializeComponent();
@@ -20,13 +21,46 @@ namespace PhanMemQuanLy.MenuForm.QuanLy.KhoaSatHach
 
         private void DanhSachExams_Load(object sender, EventArgs e)
         {
-            data.DataSource = ExamDAL.getAllExams();
+            list = PhanMemQuanLy.DAL.ExamDAL.getAllExams();
+            data.DataSource = list;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddExam ae = new AddExam();
             ae.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            UpdateExam ae1 = new UpdateExam();
+            ae1.ShowDialog();
+        }
+
+        private void data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            switch (e.ColumnIndex)
+            {
+                case 0: UpdateExam ae = new UpdateExam(list[e.RowIndex].ExamID);
+                    ae.ShowDialog();
+                    break;
+
+                case 1: ExamDAL.Delete(list[e.RowIndex].ExamID);
+                    try
+                    {
+                        list.RemoveAt(e.RowIndex);
+                    }
+                    catch { }
+
+                    break;
+            }
+        }
+
+        private void data_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

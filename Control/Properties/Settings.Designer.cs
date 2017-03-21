@@ -44,5 +44,15 @@ namespace PhanMemQuanLy.Properties {
                 return ((string)(this["ThiA1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=ThiA1;User ID=sa;Password=123456")]
+        public string ThiA1ConnectionString1 {
+            get {
+                return ((string)(this["ThiA1ConnectionString1"]));
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace PhanMemQuanLy.MenuForm.QuanLy.KhoaSatHach
         }
         private void AddExam_Load(object sender, EventArgs e)
         {
-            List<Question> qList = QuestionDAL.getAllQuestion();
+            List<Question> qList = PhanMemQuanLy.DAL.QuestionDAL.getAllQuestion();
             DataTable dt = new DataTable();
             dt.Columns.Add("ID", typeof(int));
             dt.Columns.Add("Image", typeof(Bitmap));

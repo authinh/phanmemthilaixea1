@@ -127,6 +127,7 @@
     <value>ctw</value>
   </data>
   <data name="serverLink" xml:space="preserve">
-    <value>http://192.168.117.128/prn292/</value>
+    <value>http://dev.anhdung.net/PRN292/</value>
+    <comment>dev.anhdung.net/PRN292/150-1.jpg</comment>
   </data>
 </root>
